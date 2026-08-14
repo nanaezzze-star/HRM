@@ -1,3 +1,4 @@
+import { totalAmount, weightedAmount } from "../../utils/kanbanUtils";
 
     const formatDate = (dateString) => {
   if (!dateString) return "Not Available";
@@ -14,7 +15,10 @@ export default function KanbanColumn({status, allUsers}){
         (user) => status.group?.includes(user.bloodGroup)
     )
 
-return(
+    const total = totalAmount(columnUsers);
+    const weighted = weightedAmount(total, status?.success);
+
+    return(
     <>
         <p>{status.title}</p>
             {columnUsers?.map((user) => (
@@ -25,6 +29,9 @@ return(
                     <p>Close date: {formatDate(user.birthDate)} </p>
                 </div>
             ))}
+                <div>Weighted amount {weighted}</div>
+                <div>Total amount {total}</div>
+
     </>
 )
 }
