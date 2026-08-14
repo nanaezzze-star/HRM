@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useUserById } from "../store/api";
+import { useUserById } from "../../store/api";
 import Map from "./map";
-import UsersList from "./userList";
+import UsersList from "../list/userList";
 
 export default function Profile () {
     const {id} = useParams()

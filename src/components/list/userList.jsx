@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useUsers } from "../store/api";
+import { useUsers } from "../../store/api";
 
 const formatDate = (dateString) => {
   if (!dateString) return "Not Available";
@@ -61,7 +61,7 @@ export default function UsersList(){
                         <td>{user.firstName} {user.lastName} </td>
                         <td>{user.address?.city}</td>
                         <td>{user.company?.title}</td>
-                        <td><img src ='' alt = 'img'/></td>
+                        <td><p>resume</p></td>
                         <td>{user.company?.state}</td>
                         <td>Not Avaiable</td>
                         <td>{formatDate(user.birthDate)}</td>
