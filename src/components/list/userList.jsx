@@ -3,6 +3,7 @@ import { useUsers } from "../../store/api";
 import { useSelector,  useDispatch } from "react-redux";
 import { changeCheckbox } from "../../store/kanbanSlice";
 import ResumeIcon from "../UI/icons/resumeIcon";
+import Pagination from "./Pagination";
 
 const formatDate = (dateString) => {
   if (!dateString) return "Not Available";
@@ -18,10 +19,12 @@ export default function UsersList(){
 
     const dispatch = useDispatch();
     const selectedUID = useSelector((state) => state.kanban.selectedUID);
+    const currentPage = useSelector((state) => state.pagination.currentPage);
+    const pageSize = useSelector((state) => state.pagination.pageSize);
 
     const navigate = useNavigate();
     const { 
-        data, 
+        data: response = [], 
         isLoading, 
         error
     } = useUsers();
@@ -41,7 +44,13 @@ export default function UsersList(){
             </div>
         )
     }
+
+    const usersList = Array.isArray(response) ? response : response?.users || []; // extract users array or empty array
+    const startIndex = (currentPage - 1) * pageSize; // index of the first user on the page
+    const paginatedUsers = usersList.slice(startIndex, startIndex + pageSize);// users to display on the current page
+
     return(
+        <div>
         <table>
             <thead>
                 <tr>
@@ -57,7 +66,7 @@ export default function UsersList(){
                 </tr>
             </thead>
             <tbody>
-                {data?.users?.map((user)=>(
+                {paginatedUsers.map((user)=>(
                     <tr 
                     key={user.id} 
                     onClick={() => navigate(`/user/${user.id}`)}
@@ -84,6 +93,8 @@ export default function UsersList(){
 
             </tbody>
         </table>
+        <Pagination totalItems={usersList.length} />
+        </div>
         
     )
 
