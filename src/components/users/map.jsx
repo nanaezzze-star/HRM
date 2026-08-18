@@ -12,8 +12,9 @@ export default function Map({lng = 12, lat = 12}) {
         <div>
             <iframe 
                 src = {mapUrl}
-                 width="460px"
-                 height="580px"
+                 width="460"
+                 height="580"
+                 title="User location map"
         />
         </div>
 

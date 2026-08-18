@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useUsers } from "../../store/api";
+import { useSelector,  useDispatch } from "react-redux";
+import { changeCheckbox } from "../../store/kanbanSlice";
+import ResumeIcon from "../UI/icons/resumeIcon";
 
 const formatDate = (dateString) => {
   if (!dateString) return "Not Available";
@@ -12,6 +15,10 @@ const formatDate = (dateString) => {
 };
 
 export default function UsersList(){
+
+    const dispatch = useDispatch();
+    const selectedUID = useSelector((state) => state.kanban.selectedUID);
+
     const navigate = useNavigate();
     const { 
         data, 
@@ -56,16 +63,19 @@ export default function UsersList(){
                     onClick={() => navigate(`/user/${user.id}`)}
                     >
                         <td onClick={(e) => e.stopPropagation()}>
-                            <input type = 'checkbox'/> {user.id}
+                            <input type = 'checkbox'
+                            checked={selectedUID.includes(user.id)}
+                            onChange={() => dispatch(changeCheckbox(user.id))}
+                        />{" "} {user.id}
                         </td>
                         <td>{user.firstName} {user.lastName} </td>
                         <td>{user.address?.city}</td>
                         <td>{user.company?.title}</td>
-                        <td><p>resume</p></td>
+                        <td> <ResumeIcon /> </td>
                         <td>{user.company?.state}</td>
                         <td>Not Avaiable</td>
                         <td>{formatDate(user.birthDate)}</td>
-                        <td>Not Avaiable</td>
+                        <td>Not Available</td>
                     </tr>
 
 

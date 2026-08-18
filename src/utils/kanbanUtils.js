@@ -12,3 +12,15 @@ export const totalAmount = (users) => {
 export const weightedAmount = (totalAmount, success) => {
   return totalAmount * (success || 0);
 };
+
+const formatDate = (dateString) => {
+  if (!dateString) return "Not Available";
+  
+    return new Date(dateString).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+};
+
+

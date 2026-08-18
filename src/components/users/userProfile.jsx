@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useUserById } from "../../store/api";
 import Map from "./map";
-import UsersList from "../list/userList";
 
 export default function Profile () {
     const {id} = useParams()
@@ -28,7 +27,6 @@ export default function Profile () {
     }
 
 return(
-    <>
         <>
          <img src = {data?.image}  alt = 'User avatar'/>
          <div> {data?.firstName} {data?.lastName} </div>
@@ -40,5 +38,4 @@ return(
 
         </>
 
-</>
 )}

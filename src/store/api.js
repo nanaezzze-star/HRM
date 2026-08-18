@@ -8,7 +8,7 @@ export const userApi = createApi({
   endpoints: (build) => ({
 
     getUsers: build.query ({
-      query: () => `users`,
+      query: () => `users?limit=100`,
     }),
 
     getUserById: build.query ({
