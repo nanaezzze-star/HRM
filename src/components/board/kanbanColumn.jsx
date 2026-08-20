@@ -2,6 +2,7 @@ import { totalAmount, weightedAmount } from "../../utils/kanbanUtils";
 import { useSelector,  useDispatch } from "react-redux";
 import { changeCheckbox } from "../../store/kanbanSlice";
 import BoardUserIcon from "../UI/icons/boardUserIcon";
+import * as styles from "./kanban.module.css";
 
 export default function KanbanColumn({status, allUsers}){
     const columnUsers = allUsers?.filter(
@@ -15,23 +16,43 @@ export default function KanbanColumn({status, allUsers}){
     const selectedUID = useSelector((state) => state.kanban.selectedUID);
 
     return(
-    <>
-        <p>{status.title}</p>
-            {columnUsers?.map((user) => (
-                <div key={user.id}>
-                    <input type="checkbox" 
-                     checked={selectedUID.includes(user.id)}
-                     onChange={() => dispatch(changeCheckbox(user.id))}
-                    />{" "} {user.company.title}
-                    <p>{user.company.name}</p>
-                    <p>$ {user.weight * 1000} </p>
-                    <p>Close date: Oct 26, 2021 </p>
-                    <BoardUserIcon />
-                </div>
-            ))}
-                <div>Weighted amount {weighted}</div>
-                <div>Total amount {total}</div>
+        <div className={styles.columnWrapper}>
+        <div className={styles.column}>
+        <label className={styles.columnHeader}>
+            <input type="checkbox"/> 
+            <span>{status.title}</span>
+            </label>
 
-    </>
+        <div className={styles.cardsList}>
+    {columnUsers?.map((user) => (
+        <div key={user.id} className={styles.card}>
+    
+
+    <input 
+        type="checkbox" 
+        checked={selectedUID.includes(user.id)}
+        onChange={() => dispatch(changeCheckbox(user.id))}
+    />
+
+    <div className={styles.cardBody}>
+        <span className={styles.cardTitle}>{user.company.title}</span>
+        <p className={styles.cardCompany}>{user.company.name}</p>
+        <p className={styles.cardPrice}>$&nbsp;{user.weight * 1000}</p>
+        
+        <div className={styles.cardFooter}>
+            <p className={styles.cardDate}>Close date: <span>Oct 26, 2021</span></p>
+            <BoardUserIcon />
+                </div>
+            </div>
+        </div>
+            ))}
+            </div>
+            </div>
+
+                <div className={styles.amount}>
+                    <div className={styles.weight}>Weighted amount <span>$&nbsp;{weighted}</span> </div>
+                    <div className={styles.total}>Total amount <span>$&nbsp;{total}</span></div>
+                </div>
+    </div>
 )
 }
