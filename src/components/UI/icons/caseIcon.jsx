@@ -1,9 +1,7 @@
 export default function CaseIcon(){
     return(
     <svg
-      width="56"
-      height="48"
-      viewBox="0 0 56 48"
+      viewBox="18 14 20 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"

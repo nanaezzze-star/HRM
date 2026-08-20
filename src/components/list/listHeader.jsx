@@ -17,7 +17,7 @@ export default function ListHeader(){
                 <option>Swiggy</option>
                 <option>LuxApp CRM</option>
                 <option>Recruit App-mo</option>
-                <option> <strong>Recruit LuxApp</strong></option>
+                <option> Recruit LuxApp</option>
                 <option>EY</option>
                 <option>Zapier</option>
                 <option>Recruit CRM</option>

@@ -1,9 +1,7 @@
 export default function GroupIcon(){
     return(
         <svg
-      width="72"
-      height="64"
-      viewBox="0 0 72 64"
+      viewBox="26 25 20 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"

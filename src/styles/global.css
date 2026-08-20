@@ -1,0 +1,39 @@
+:root{
+    --button-blue: #707FDD;
+    --button-grey: #A6ABC8;
+    --background-color: #ffffff;
+    --background-accent: #F1F2F7;
+    --border-color: #F4F4F4;
+    --text-color: #3E566F;
+    --deals-won-color: #229B7D;
+    --deals-lost-color: #E14B55;
+    --total-deals-color: #000000;
+
+    --radius-small: 4px;
+    --radius-big: 6px;
+    --radius-large: 10px;
+
+    --header-height: 80px;
+    --list-header-height: 40px;
+    --aside-width: 74px;
+
+    --z-dropdown: 100;
+
+    --font: 'Poppins', system-ui, sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1;
+}

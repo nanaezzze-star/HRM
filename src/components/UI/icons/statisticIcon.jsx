@@ -1,9 +1,7 @@
 export default function StatIcon(){
     return(
         <svg
-      width="58"
-      height="50"
-      viewBox="0 0 58 50"
+      viewBox="16 12 26 26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
