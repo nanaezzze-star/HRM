@@ -19,7 +19,8 @@ export default function KanbanColumn({status, allUsers}){
         <div className={styles.columnWrapper}>
         <div className={styles.column}>
         <label className={styles.columnHeader}>
-            <input type="checkbox"/> 
+            <input type="checkbox" 
+            aria-label={`Select deal: ${status.title}`}/>
             <span>{status.title}</span>
             </label>
 
@@ -32,6 +33,7 @@ export default function KanbanColumn({status, allUsers}){
         type="checkbox" 
         checked={selectedUID.includes(user.id)}
         onChange={() => dispatch(changeCheckbox(user.id))}
+        aria-label={`Select deal for ${user.title || user.name}`}
     />
 
     <div className={styles.cardBody}>

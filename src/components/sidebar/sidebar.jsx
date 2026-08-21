@@ -59,6 +59,7 @@ return (
               className={({ isActive }) => 
               isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
+              aria-label="Kanban board"
             >
               <PigIcon />
             </NavLink>
