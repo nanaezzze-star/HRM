@@ -15,7 +15,6 @@ export default function KanbanCard({user}){
         transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
         zIndex: isDragging ? 9999 : 'auto', 
         position: isDragging ? 'relative' : undefined, 
-        opacity: isDragging ? 0.6 : 1, 
     };
 
     return(
@@ -30,8 +29,11 @@ export default function KanbanCard({user}){
             type="checkbox" 
             checked={selectedUID.includes(user.id)}
             onChange={() => dispatch(changeCheckbox(user.id))}
-            aria-label={`Select deal for ${user.title || user.name}`}
-            />
+            onPointerDown={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
+    
+    aria-label={`Select deal for ${user.title || user.name}`}
+/>
             
             <div className={styles.cardBody}>
                 <span className={styles.cardTitle}>{user.company.title}</span>
