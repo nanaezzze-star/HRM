@@ -1,22 +1,26 @@
 import { totalAmount, weightedAmount } from "../../utils/kanbanUtils";
-import { useSelector,  useDispatch } from "react-redux";
-import { changeCheckbox } from "../../store/kanbanSlice";
-import BoardUserIcon from "../UI/icons/boardUserIcon";
+import { useSelector} from "react-redux";
+import { useDroppable } from "@dnd-kit/core";
+import KanbanCard from "./kanbanCard";
 import * as styles from "./kanban.module.css";
 
-export default function KanbanColumn({status, allUsers}){
+export default function KanbanColumn({status}){
+
+
+    const allUsers = useSelector((state) => state.kanban.users);
     const columnUsers = allUsers?.filter(
-        (user) => status.group?.includes(user.bloodGroup)
-    )
+        (user) => user.statusId === status.id
+    );
 
     const total = totalAmount(columnUsers);
     const weighted = weightedAmount(total, status?.success);
 
-    const dispatch = useDispatch();//send action to store
-    const selectedUID = useSelector((state) => state.kanban.selectedUID);
+    const { setNodeRef } = useDroppable({
+        id: status.id,
+    });
 
     return(
-        <div className={styles.columnWrapper}>
+        <div ref={setNodeRef} className={styles.columnWrapper}>
         <div className={styles.column}>
         <label className={styles.columnHeader}>
             <input type="checkbox" 
@@ -26,27 +30,10 @@ export default function KanbanColumn({status, allUsers}){
 
         <div className={styles.cardsList}>
     {columnUsers?.map((user) => (
-        <div key={user.id} className={styles.card}>
+
+            <KanbanCard key={user.id} user = {user}/>
     
 
-    <input 
-        type="checkbox" 
-        checked={selectedUID.includes(user.id)}
-        onChange={() => dispatch(changeCheckbox(user.id))}
-        aria-label={`Select deal for ${user.title || user.name}`}
-    />
-
-    <div className={styles.cardBody}>
-        <span className={styles.cardTitle}>{user.company.title}</span>
-        <p className={styles.cardCompany}>{user.company.name}</p>
-        <p className={styles.cardPrice}>$&nbsp;{user.weight * 1000}</p>
-        
-        <div className={styles.cardFooter}>
-            <p className={styles.cardDate}>Close date: <span>Oct 26, 2021</span></p>
-            <BoardUserIcon />
-                </div>
-            </div>
-        </div>
             ))}
             </div>
             </div>

@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { DEALS_STATUS } from "../constants/kanbanConfig";
+const STATUS_IDS = DEALS_STATUS.map(status => status.id);
 
 export const kanbanSlice = createSlice({
   name: 'kanban',
   initialState: {
     selectedUID: [],
+    users: [],
   },
   reducers: {
     changeCheckbox: (state, action) => {
@@ -17,8 +20,20 @@ export const kanbanSlice = createSlice({
         state.selectedUID.push(id);
       }
     },
+  setUsers: (state, action) => {
+    state.users = action.payload.map((user) => ({
+        ...user,
+        statusId: user.statusId || STATUS_IDS[user.id % STATUS_IDS.length],// distribute users across columns based on their ID
+    }));
   },
-});
+  moveUser: (state, action) => {
+    const { userId, newStatusId } = action.payload;
+    const user = state.users.find((u) => u.id === userId);
+    if (user) {
+      user.statusId = newStatusId;
+    }
+  }
+}});
 
-export const { changeCheckbox } = kanbanSlice.actions;
+export const { changeCheckbox, setUsers, moveUser } = kanbanSlice.actions;
 export default kanbanSlice.reducer;

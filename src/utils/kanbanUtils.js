@@ -10,7 +10,7 @@ export const totalAmount = (users) => {
 };
 
 export const weightedAmount = (totalAmount, success) => {
-  return totalAmount * (success || 0);
+  return Math.round(totalAmount * success);;
 };
 
 const formatDate = (dateString) => {

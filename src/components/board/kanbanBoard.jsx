@@ -1,15 +1,48 @@
 import { useUsers } from "../../store/api";
-import KanbanColumn from "./kanbanColumn";
+import { setUsers } from "../../store/kanbanSlice";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { DndContext, DragOverlay } from "@dnd-kit/core";
 import { DEALS_STATUS } from "../../constants/kanbanConfig";
-import { totalAmount, weightedAmount } from "../../utils/kanbanUtils";
+import { moveUser } from "../../store/kanbanSlice";
+import KanbanColumn from "./kanbanColumn";
+import KanbanCard from "./kanbanCard";
 import * as styles from "./kanban.module.css";
 
 export default function KanbanBoard() {
+    const dispatch = useDispatch();
+
+    const [activeUser, setActiveUser] = useState(null);
+    const allUsers = useSelector((state) => state.kanban.users)
+
     const { 
             data, 
             isLoading, 
             error
         } = useUsers();
+
+        useEffect(() => {
+        if (data?.users) {
+            dispatch(setUsers(data.users));
+        }
+        }, [data]);
+
+    const handleDragStart = (event) => {
+        const user = allUsers.find((u) => u.id === event.active.id);
+        setActiveUser(user);
+    };
+
+    const handleDragEnd = (event) => {
+        const { active, over } = event;
+        setActiveUser(null);
+
+        if (!over) return;
+
+        dispatch(moveUser({ 
+            userId: active.id, 
+            newStatusId: over.id 
+        }));
+    };
 
     if(isLoading) {
         return(
@@ -55,6 +88,7 @@ export default function KanbanBoard() {
                     <span className={styles.summaryValueRed}>$60,000</span>
                 </div>
             </div>
+            <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <div className={styles.kanbanContainer}>
             {DEALS_STATUS.map((status)=>(
             <KanbanColumn 
@@ -65,6 +99,10 @@ export default function KanbanBoard() {
         ))}
 
         </div>
+        <DragOverlay>
+                    {activeUser ? <KanbanCard user={activeUser} /> : null}
+        </DragOverlay>
+        </DndContext>
         </div>
 
 
