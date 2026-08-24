@@ -9,6 +9,7 @@
     --deals-lost-color: #E14B55;
     --total-deals-color: #000000;
 
+
     --radius-small: 4px;
     --radius-big: 16px;
     --radius-large: 10px;
@@ -24,6 +25,8 @@
     --font-weight-regular: 400;
     --font-weight-semibold: 600;
     --small-font-size: 14px;
+    --font-size: 16px;
+
 }
 
 * {

@@ -6,8 +6,7 @@
     justify-content: space-between;
     padding: 0 32px;
     background-color: var(--background-color);
-    position: sticky;
-    top: 0;
+
 }
 .titleGroup{
     position: relative;

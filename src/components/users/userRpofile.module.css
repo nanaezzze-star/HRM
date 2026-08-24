@@ -1,0 +1,55 @@
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr; 
+    gap: 24px;
+    padding: 24px;
+    align-items: start;
+}
+
+.userCard {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-big);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 2px solid var(--button-blue);
+}
+
+.name {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+
+.title {
+    font-size: var(--small-font-size);
+    color: var(--button-grey);
+    margin-bottom: 14px;
+}
+
+.cityBadge {
+    background-color: var(--background-accent);
+    color: var(--button-blue);
+    padding: 6px 14px;
+    border-radius: var(--radius-small);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.loadingContainer,
+.errorContainer {
+    padding: 40px;
+    text-align: center;
+}

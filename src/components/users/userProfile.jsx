@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useUserById } from "../../store/api";
 import Map from "./map";
+import * as styles from "./userRpofile.module.css";
 
 export default function Profile () {
     const {id} = useParams()
@@ -27,15 +28,22 @@ export default function Profile () {
     }
 
 return(
-        <>
-         <img src = {data?.image}  alt = 'User avatar'/>
-         <div> {data?.firstName} {data?.lastName} </div>
-         <div>{data?.company?.title}</div>
-         <div>{data?.address?.city}</div>             
-         <Map 
-            lat={data?.address?.coordinates?.lat} 
-            lng={data?.address?.coordinates?.lng}/>
+        <div className={styles.container}>
+            <div className={styles.userCard}>
+                <img 
+                    src={data?.image} 
+                    alt="User avatar" 
+                    className={styles.avatar}
+                />
+                <h2 className={styles.name}>{data?.firstName} {data?.lastName}</h2>
+                <p className={styles.title}>{data?.company?.title || "No Title"}</p>
+                <span className={styles.cityBadge}>{data?.address?.city || "Not available"}</span>
+            </div>
 
-        </>
+            <Map 
+                lat={data?.address?.coordinates?.lat} 
+                lng={data?.address?.coordinates?.lng}
+            />
+        </div>
 
 )}

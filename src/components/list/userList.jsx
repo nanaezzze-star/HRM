@@ -4,6 +4,7 @@ import { useSelector,  useDispatch } from "react-redux";
 import { changeCheckbox } from "../../store/kanbanSlice";
 import ResumeIcon from "../UI/icons/resumeIcon";
 import Pagination from "./Pagination";
+import * as styles from "./userList.module.css";
 
 const formatDate = (dateString) => {
   if (!dateString) return "Not Available";
@@ -50,50 +51,55 @@ export default function UsersList(){
     const paginatedUsers = usersList.slice(startIndex, startIndex + pageSize);// users to display on the current page
 
     return(
-        <div>
-        <table>
-            <thead>
-                <tr>
-                    <th> <input type = 'checkbox'/>ID </th>
-                    <th>Name</th>
-                    <th>City</th>
-                    <th>Title</th>
-                    <th>Resume</th>
-                    <th>Owner</th>
-                    <th>Source</th>
-                    <th>Profile request</th>
-                    <th>Profile update</th>
-                </tr>
-            </thead>
-            <tbody>
-                {paginatedUsers.map((user)=>(
-                    <tr 
-                    key={user.id} 
-                    onClick={() => navigate(`/user/${user.id}`)}
-                    >
-                        <td onClick={(e) => e.stopPropagation()}>
-                            <input type = 'checkbox'
-                            checked={selectedUID.includes(user.id)}
-                            onChange={() => dispatch(changeCheckbox(user.id))}
-                        />{" "} {user.id}
-                        </td>
-                        <td>{user.firstName} {user.lastName} </td>
-                        <td>{user.address?.city}</td>
-                        <td>{user.company?.title}</td>
-                        <td> <ResumeIcon /> </td>
-                        <td>{user.company?.state}</td>
-                        <td>Not Avaiable</td>
-                        <td>{formatDate(user.birthDate)}</td>
-                        <td>Not Available</td>
+        <div className={styles.container}>
+            <table className={styles.table}>
+                <thead className={styles.thead}>
+                    <tr>
+                        <th>
+                            <input type="checkbox"/>
+                        </th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Title</th>
+                        <th>Resume</th>
+                        <th>Owner</th>
+                        <th>Source</th>
+                        <th>Profile request</th>
+                        <th>Profile updated</th>
                     </tr>
-
-
-
-                ) )}
-
-            </tbody>
-        </table>
-        <Pagination totalItems={usersList.length} />
+                </thead>
+                <tbody className={styles.tbody}>
+                    {paginatedUsers.map((user) => (
+                        <tr 
+                            key={user.id} 
+                            onClick={() => navigate(`/user/${user.id}`)}
+                            className={styles.row}
+                        >
+                            <td onClick={(e) => e.stopPropagation()} >
+                                <input 
+                                    type="checkbox"
+                                    checked={selectedUID.includes(user.id)}
+                                    onChange={() => dispatch(changeCheckbox(user.id))}
+                                />
+                            </td>
+                            <td>{user.id}</td>
+                            <td className={styles.nameCell}>{user.firstName} {user.lastName}</td>
+                            <td>{user.address?.city}</td>
+                            <td>{user.company?.title}</td>
+                            <td><ResumeIcon /></td>
+                            <td>{user.company?.state || "Shrini"}</td>
+                            <td>Not Available</td>
+                            <td>{formatDate(user.birthDate)}</td>
+                            <td>Not Available</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            
+            <div className={styles.paginationContainer}>
+                <Pagination totalItems={usersList.length} />
+            </div>
         </div>
         
     )

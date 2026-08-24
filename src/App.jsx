@@ -9,10 +9,10 @@ import * as styles from './App.module.css';
 const App = () =>{
   return(
     <BrowserRouter>
-    <div className={styles.appWrapper}>
+    <div className={styles.aside}>
         <Aside />
 
-        <div className={styles.mainContent}>
+        <div className={styles.header}>
           <Header />
           
           <main className={styles.page}>

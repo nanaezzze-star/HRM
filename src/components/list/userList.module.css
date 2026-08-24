@@ -1,0 +1,75 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 2.5rem;
+}
+
+.table {
+    width: 100%;
+    table-layout: auto;
+    font-family: var(--font);
+    font-size: var(--font-size);
+}
+
+.thead {
+    background-color: var(--background-accent);
+}
+
+.thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-color);
+    white-space: nowrap;
+}
+
+.tbody {
+    width: 100%;
+}
+
+
+.row {
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color );
+}
+
+.row td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.row:hover {
+    background-color: var(--background-accent);
+}
+
+
+
+
+
+.idCell {
+
+}
+
+.nameCell {
+    font-weight: var(--font-weight-semibold);
+}
+
+
+
+
+
+.paginationContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 24px;
+    margin-top: 12px;
+
+}
+
+
+

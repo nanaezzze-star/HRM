@@ -9,8 +9,6 @@
     border: 1px solid var(--border-color);
     border-top: none;
     background-color: var(--background-color);
-    position: sticky;
-    top: 0;
 }
 .searchWrapper{
     position: relative;

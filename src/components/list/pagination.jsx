@@ -1,5 +1,6 @@
 import { useSelector,  useDispatch } from "react-redux";
 import { setCurrentPage, setPageSize } from "../../store/paginationSlice";
+import * as styles from "./pagination.module.css";
 
 export default function Pagination({totalItems}){
     const dispatch = useDispatch();
@@ -26,36 +27,47 @@ export default function Pagination({totalItems}){
     };
 
     return(
-        <nav className="pagination">
-        <select 
-        value={pageSize} 
-        onChange={(e) => dispatch(setPageSize(Number(e.target.value)))}
-        >
-        <option value={10}>10</option>
-        <option value={13}>13</option>
-        <option value={20}>20</option>
-        </select>
+     <nav className={styles.pagination}>
+            <div className={styles.selectWrapper}>
+                <select 
+                    className={styles.select}
+                    value={pageSize} 
+                    onChange={(e) => dispatch(setPageSize(Number(e.target.value)))}
+                >
+                    <option value={10}>10</option>
+                    <option value={13}>13</option>
+                    <option value={20}>20</option>
+                </select>
+            </div>
 
+            <button 
+                type="button"
+                className={styles.arrowBtn} 
+                onClick={handlePrev} 
+                disabled={currentPage === 1}
+            >
+                ‹
+            </button>
 
-        <button onClick={handlePrev} disabled={currentPage === 1}>
-        &lt;
-        </button>
+            {pageNumbers.map((page) => (
+                <button
+                    type="button"
+                    key={page}
+                    className={`${styles.pageBtn} ${page === currentPage ? styles.active : ""}`}
+                    onClick={() => dispatch(setCurrentPage(page))}
+                >
+                    {page}
+                </button>
+            ))}
 
- 
-        {pageNumbers.map((page) => (
-         <button
-        key={page}
-        className={page === currentPage ? "page-btn active" : "page-btn"}
-        onClick={() => dispatch(setCurrentPage(page))}
-        >
-        {page}
-         </button>
-        ))}
-
- 
-        <button onClick={handleNext} disabled={currentPage >= totalPages}>
-        &gt;
-        </button>
+            <button 
+                type="button"
+                className={styles.arrowBtn} 
+                onClick={handleNext} 
+                disabled={currentPage >= totalPages}
+            >
+                ›
+            </button>
         </nav>
     )
 }
