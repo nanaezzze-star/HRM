@@ -30,16 +30,16 @@ export default function ListHeader(){
                 </button>
 
                 {isDropdownOpen && (
-                    <div>
-                        <div>Swiggy</div>
-                        <div>LuxApp CRM</div>
-                        <div>Recruit App-mo</div>
-                        <div>Recruit LuxApp</div>
-                        <div>EY</div>
-                        <div>Zapier</div>
-                        <div>Recruit CRM</div>
-                    </div>
-                )}
+                 <div className={styles.dropdownMenu}>
+                <div className={styles.dropdownItem}>Swiggy</div>
+                <div className={styles.dropdownItem}>LuxApp CRM</div>
+                <div className={styles.dropdownItem}>Recruit App-mo</div>
+                <div className={styles.dropdownItem}>Recruit LuxApp</div>
+                <div className={styles.dropdownItem}>EY</div>
+                <div className={styles.dropdownItem}>Zapier</div>
+                <div className={styles.dropdownItem}>Recruit CRM</div>
+            </div>
+            )}
             </div>
         
         <button className={styles.slackButton}>
