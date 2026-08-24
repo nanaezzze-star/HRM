@@ -52,3 +52,29 @@
 .bottomGroup{
     margin-top: auto;
 }
+.backdrop {
+    display: none;
+}
+
+
+@media (max-width: 40.5rem) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        transform: translateX(-100%); 
+    }
+
+    .sidebarOpen {
+        transform: translateX(0);
+    }
+
+    .backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background-color: rgb(from var(--total-deals-color) r g b / 30%);
+        z-index: var(--z-sidebar) ;
+    }
+}

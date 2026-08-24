@@ -1,10 +1,22 @@
 .container {
+    min-height: 2.5rem; 
+    height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    padding-top: 2.5rem;
+    padding: 1rem 2.5rem;
+    flex-wrap: wrap;
+}
+.tableWrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    flex: 1;
 }
 
 .table {
@@ -59,5 +71,32 @@
     margin-top: 12px;
 }
 
+@media (max-width: 64.25rem) {/* 1028px */
+    .header {
+        padding: 1rem 12px; 
+    }
 
+    .paginationContainer {
+        justify-content: flex-start;     
+}
 
+}
+
+@media (max-width: 40.5rem) {/*648px*/
+    .tableWrapper {
+        gap: 0.8rem;
+    }
+    
+    .dropdownWrapper,
+    .dropdownBtn,
+    .slackButton,
+    .searchWrapper {
+        width: 100%;
+        max-width: none;
+    }
+
+    .paginationContainer {
+    justify-content: flex-start;
+    }
+
+}

@@ -1,55 +1,172 @@
 .container {
-    display: grid;
-    grid-template-columns: 320px 1fr; 
-    gap: 24px;
-    padding: 24px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    width: 100%; 
+    box-sizing: border-box;
 }
 
-.userCard {
+.headerCard {
+    width: 100%;
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-big);
-    padding: 24px;
+    padding: 1.5rem 2rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 1.5rem;
+    box-sizing: border-box;
 }
 
 .avatar {
-    width: 96px;
-    height: 96px;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 16px;
+    background-color: var(--background-accent);
     border: 2px solid var(--button-blue);
+    flex-shrink: 0;
+}
+
+.headerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.nameRow {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
 }
 
 .name {
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: var(--font-weight-semibold);
     color: var(--text-color);
-    margin-bottom: 6px;
+    margin: 0;
 }
 
 .title {
     font-size: var(--small-font-size);
     color: var(--button-grey);
-    margin-bottom: 14px;
 }
 
 .cityBadge {
     background-color: var(--background-accent);
     color: var(--button-blue);
-    padding: 6px 14px;
+    padding: 0.25rem 0.75rem;
     border-radius: var(--radius-small);
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semibold);
 }
 
-.loadingContainer,
-.errorContainer {
-    padding: 40px;
+.grid {
+    display: grid;
+    grid-template-columns: minmax(22rem, 1fr) minmax(24rem, 1.2fr); 
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-big);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 24rem; 
+    box-sizing: border-box;
+}
+
+.cardTitle {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-color);
+    margin-bottom: 1.25rem;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); 
+    gap: 1.25rem 1.5rem;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.infoLabel {
+    font-size: 0.75rem;
+    color: var(--button-grey);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: var(--font-weight-semibold);
+}
+
+.infoValue {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4; 
+    word-break: break-word;
+}
+
+.addressText {
+    font-size: var(--small-font-size);
+    color: var(--button-grey);
+    margin-bottom: 1rem;
+    margin-top: -0.5rem;
+}
+
+.mapContainer {
+    width: 100%;
+    min-height: 18rem;
+    flex: 1; 
+    border-radius: var(--radius-small);
+    overflow: hidden;
+}
+
+.status {
+    padding: 2.5rem;
     text-align: center;
+    color: var(--button-grey);
+}
+
+
+@media (max-width: 56.5rem) { /*905*/
+    .grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+@media (max-width: 40.5rem) { /*648*/
+
+    .headerCard {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nameRow {
+        flex-wrap: wrap; 
+    }
+
+    .avatar {
+        width: 4rem; 
+        height: 4rem;
+    }
+
+    .infoGrid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .mapContainer {
+        min-height: 250px; 
+    }
+
 }

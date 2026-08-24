@@ -52,11 +52,14 @@ export default function UsersList(){
 
     return(
         <div className={styles.container}>
+            <div className={styles.tableWrapper}>
             <table className={styles.table}>
                 <thead className={styles.thead}>
                     <tr>
                         <th>
-                            <input type="checkbox"/>
+                            <input type="checkbox"
+                            aria-hidden="true" 
+                            tabIndex="-1"/>
                         </th>
                         <th>ID</th>
                         <th>Name</th>
@@ -81,7 +84,7 @@ export default function UsersList(){
                                     type="checkbox"
                                     checked={selectedUID.includes(user.id)}
                                     onChange={() => dispatch(changeCheckbox(user.id))}
-                                />
+                                    aria-label={`Select user: ${user.lastName}`}/>
                             </td>
                             <td>{user.id}</td>
                             <td className={styles.nameCell}>{user.firstName} {user.lastName}</td>
@@ -96,10 +99,12 @@ export default function UsersList(){
                     ))}
                 </tbody>
             </table>
+            </div>
             
             <div className={styles.paginationContainer}>
                 <Pagination totalItems={usersList.length} />
             </div>
+        
         </div>
         
     )

@@ -5,7 +5,7 @@ import BoardUserIcon from "../UI/icons/boardUserIcon";
 import * as styles from "./kanban.module.css";
 
 export default function KanbanCard({user}){
-    const dispatch = useDispatch();//send action to store
+    const dispatch = useDispatch();
 
     const selectedUID = useSelector((state) => state.kanban.selectedUID);
     const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({

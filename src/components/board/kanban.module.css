@@ -171,3 +171,24 @@
     font-weight: var(--font-weight-semibold);
 
 }
+@media (max-width: 43rem) { /* 688px */
+    .deals {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        margin-bottom: 2rem; 
+    }
+
+   .dealsTitle {
+        grid-column: 1 / -1; 
+        margin-bottom: 0.5rem;
+    }
+
+    .summaryLabel,
+    .summaryLabelGreen,
+    .summaryLabelRed {
+        max-width: none; 
+    }
+}
+
+

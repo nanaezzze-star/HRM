@@ -27,11 +27,12 @@ export default function Pagination({totalItems}){
     };
 
     return(
-     <nav className={styles.pagination}>
+     <nav className={styles.pagination} aria-label="Pagination Navigation">
             <div className={styles.selectWrapper}>
                 <select 
                     className={styles.select}
                     value={pageSize} 
+                    aria-label="Items per page"
                     onChange={(e) => dispatch(setPageSize(Number(e.target.value)))}
                 >
                     <option value={10}>10</option>
@@ -45,6 +46,7 @@ export default function Pagination({totalItems}){
                 className={styles.arrowBtn} 
                 onClick={handlePrev} 
                 disabled={currentPage === 1}
+                aria-label="Previous page"
             >
                 ‹
             </button>
@@ -55,6 +57,8 @@ export default function Pagination({totalItems}){
                     key={page}
                     className={`${styles.pageBtn} ${page === currentPage ? styles.active : ""}`}
                     onClick={() => dispatch(setCurrentPage(page))}
+                    aria-label={`Page ${page}`}
+                    aria-current={page === currentPage ? "page" : undefined}
                 >
                     {page}
                 </button>
@@ -65,6 +69,7 @@ export default function Pagination({totalItems}){
                 className={styles.arrowBtn} 
                 onClick={handleNext} 
                 disabled={currentPage >= totalPages}
+                aria-label="Next page"
             >
                 ›
             </button>
