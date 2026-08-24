@@ -1,4 +1,4 @@
-import AddIcon from "../UI/icons/AddIcon";
+import AddIcon from '../UI/icons/addIcon';
 import GiftIcon from "../UI/icons/giftIcon";
 import MailIcon from "../UI/icons/mailIcon";
 import NotificationIcon from "../UI/icons/notificationIcon";
