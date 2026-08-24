@@ -1,8 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
-  mode: 'development',
+  mode: isProduction ? 'production' : 'development',
 
   entry: './src/Main.jsx',
   
@@ -23,7 +25,13 @@ module.exports = {
           options: {
             presets: [
               '@babel/preset-env',
-              ['@babel/preset-react', { runtime: 'automatic' }]
+              [
+                '@babel/preset-react', 
+                { 
+                  runtime: 'automatic',
+                  development: !isProduction 
+                }
+              ]
             ]
           }
         }
