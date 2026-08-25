@@ -14,4 +14,7 @@ export const store = configureStore({
   getDefaultMiddleware().concat(userApi.middleware),//cache and checks
 
 });
+    store.subscribe(() => {
+  localStorage.setItem('kanbanState', JSON.stringify(store.getState().kanban));
+})
 
