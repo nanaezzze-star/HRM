@@ -67,7 +67,7 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 43rem) {
-    main[class*="MCfP"] {
-        padding: 0;
+    main[class] {
+        padding: 0 !important;
     }
 }
