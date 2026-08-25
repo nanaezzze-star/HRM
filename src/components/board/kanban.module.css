@@ -183,6 +183,14 @@
         grid-column: 1 / -1; 
         margin-bottom: 0.5rem;
     }
+    .deals {
+   
+    align-items: center;
+    gap: 1rem; 
+    padding-left: 1.2rem;         
+
+    margin-bottom: 1.2rem;
+}
 
     .summaryLabel,
     .summaryLabelGreen,

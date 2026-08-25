@@ -98,5 +98,8 @@
     .paginationContainer {
     justify-content: flex-start;
     }
+    .container{
+        padding: 0;
+    }
 
 }
