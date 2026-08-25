@@ -164,6 +164,9 @@
     .infoGrid {
         grid-template-columns: 1fr; 
     }
+    .container{
+        padding: 0
+    }
     
     .mapContainer {
         min-height: 250px; 
