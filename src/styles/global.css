@@ -49,11 +49,6 @@ input[type="checkbox"] {
 }
 
 ::-webkit-scrollbar {
-  /*scrolbar settings for Chrome, Safari, Edge*/
-  width: 6px;
-}
-::-webkit-scrollbar {
-  /*scrolbar settings for Fiexfox*/
   width: 6px;
   scrollbar-width: thin;
   scrollbar-color: var(--button-grey) transparent;

@@ -13,8 +13,19 @@ export const paginationSlice = createSlice({
       state.pageSize = action.payload; // users per page
       state.currentPage = 1;
     },
+    nextPage: (state, action) => {
+      const totalPages = action.payload;
+      if (state.currentPage < totalPages) {
+        state.currentPage += 1;
+      }
+    },
+    prevPage: (state) => {
+      if (state.currentPage > 1) {
+        state.currentPage -= 1;
+      }
+    },
   },
 });
 
-export const { setCurrentPage, setPageSize } = paginationSlice.actions;
+export const { setCurrentPage, setPageSize, nextPage, prevPage } = paginationSlice.actions;
 export default paginationSlice.reducer;

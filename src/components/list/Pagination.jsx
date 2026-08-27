@@ -1,5 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentPage, setPageSize } from "../../store/paginationSlice";
+import {
+  setCurrentPage,
+  setPageSize,
+  nextPage,
+  prevPage,
+} from "../../store/paginationSlice";
 import * as styles from "./pagination.module.css";
 
 export default function Pagination({ totalItems }) {
@@ -8,18 +13,6 @@ export default function Pagination({ totalItems }) {
   const pageSize = useSelector((state) => state.pagination.pageSize);
 
   const totalPages = Math.ceil(totalItems / pageSize) || 1;
-
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      dispatch(setCurrentPage(currentPage + 1));
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentPage > 1) {
-      dispatch(setCurrentPage(currentPage - 1));
-    }
-  };
 
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -44,7 +37,7 @@ export default function Pagination({ totalItems }) {
       <button
         type="button"
         className={styles.arrowBtn}
-        onClick={handlePrev}
+        onClick={() => dispatch(prevPage())}
         disabled={currentPage === 1}
         aria-label="Previous page"
       >
@@ -67,7 +60,7 @@ export default function Pagination({ totalItems }) {
       <button
         type="button"
         className={styles.arrowBtn}
-        onClick={handleNext}
+        onClick={() => dispatch(nextPage(totalPages))}
         disabled={currentPage >= totalPages}
         aria-label="Next page"
       >
