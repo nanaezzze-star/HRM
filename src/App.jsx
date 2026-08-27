@@ -1,8 +1,8 @@
 import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router";
-import Board from "./pages/board";
-import List from "./pages/list";
-import UserPage from "./pages/user";
+import Board from "./pages/Board";
+import List from "./pages/List";
+import UserPage from "./pages/User";
 import { Layout } from "./Layout";
 import "./styles/global.css";
 
