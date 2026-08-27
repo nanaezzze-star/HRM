@@ -23,4 +23,7 @@ export const formatDate = (dateString) => {
   });
 };
 
+export const calculateTotalPages = (totalLength, pageSize) => {
+  return Math.ceil(totalLength / pageSize) || 1;
+};
 

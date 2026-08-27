@@ -5,6 +5,7 @@ import {
   nextPage,
   prevPage,
 } from "../../store/paginationSlice";
+import { calculateTotalPages } from "../../utils/kanbanUtils";
 import * as styles from "./pagination.module.css";
 
 export default function Pagination({ totalItems }) {
@@ -12,7 +13,7 @@ export default function Pagination({ totalItems }) {
   const currentPage = useSelector((state) => state.pagination.currentPage);
   const pageSize = useSelector((state) => state.pagination.pageSize);
 
-  const totalPages = Math.ceil(totalItems / pageSize) || 1;
+  const totalPages = calculateTotalPages(totalItems, pageSize);
 
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -60,7 +61,7 @@ export default function Pagination({ totalItems }) {
       <button
         type="button"
         className={styles.arrowBtn}
-        onClick={() => dispatch(nextPage(totalItems))}
+        onClick={() => dispatch(nextPage())}
         disabled={currentPage >= totalPages}
         aria-label="Next page"
       >

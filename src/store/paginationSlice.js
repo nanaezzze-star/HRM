@@ -13,16 +13,11 @@ export const paginationSlice = createSlice({
       state.pageSize = action.payload; // users per page
       state.currentPage = 1;
     },
-    nextPage: (state, action) => {
-      const totalPages = action.payload;
-      if (state.currentPage < totalPages) {
+    nextPage: (state) => {
         state.currentPage += 1;
-      }
-    },
+      },
     prevPage: (state) => {
-      if (state.currentPage > 1) {
         state.currentPage -= 1;
-      }
     },
   },
 });
