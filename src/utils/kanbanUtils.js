@@ -13,7 +13,7 @@ export const weightedAmount = (totalAmount, success) => {
   return Math.round(totalAmount * success);;
 };
 
-const formatDate = (dateString) => {
+export const formatDate = (dateString) => {
   if (!dateString) return "Not Available";
   
     return new Date(dateString).toLocaleDateString("en-US", {

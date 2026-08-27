@@ -60,7 +60,7 @@ export default function Pagination({ totalItems }) {
       <button
         type="button"
         className={styles.arrowBtn}
-        onClick={() => dispatch(nextPage(totalPages))}
+        onClick={() => dispatch(nextPage(totalItems))}
         disabled={currentPage >= totalPages}
         aria-label="Next page"
       >
