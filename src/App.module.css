@@ -1,19 +1,19 @@
 .aside {
-  display: flex; 
-  min-height: 100vh; 
-  background-color: var(--background-color); 
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background-color);
 }
 
 .header {
-  flex: 1; 
+  flex: 1;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   min-width: 0;
 }
 
 .page {
   flex: 1;
-  padding: 24px; 
-  overflow-y: auto; 
+  padding: 24px;
+  overflow-y: auto;
   min-width: 0;
 }

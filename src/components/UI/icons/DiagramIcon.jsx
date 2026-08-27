@@ -1,6 +1,6 @@
-export default function DiagramIcon(){
-    return(
-        <svg
+export default function DiagramIcon() {
+  return (
+    <svg
       viewBox="24 20 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -11,5 +11,5 @@ export default function DiagramIcon(){
         fill="#A6ABC8"
       />
     </svg>
-    )
+  );
 }

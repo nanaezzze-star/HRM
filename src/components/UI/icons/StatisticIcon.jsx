@@ -1,6 +1,6 @@
-export default function StatIcon(){
-    return(
-        <svg
+export default function StatIcon() {
+  return (
+    <svg
       viewBox="16 12 26 26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -11,5 +11,5 @@ export default function StatIcon(){
         fill="#A6ABC8"
       />
     </svg>
-    )
+  );
 }

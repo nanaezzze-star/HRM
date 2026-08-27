@@ -1,6 +1,6 @@
-export default function PigIcon(){
-    return(
-        <svg
+export default function PigIcon() {
+  return (
+    <svg
       viewBox="2 3 20 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -13,5 +13,5 @@ export default function PigIcon(){
         fill="currentColor"
       />
     </svg>
-    )
+  );
 }

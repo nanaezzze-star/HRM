@@ -1,6 +1,6 @@
-export default function BoardUserIcon(){
-    return(
-        <svg
+export default function BoardUserIcon() {
+  return (
+    <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -21,5 +21,5 @@ export default function BoardUserIcon(){
         fill="#B1B5BB"
       />
     </svg>
-    )
+  );
 }

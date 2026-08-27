@@ -1,6 +1,6 @@
-export default function MailIcon(){
-    return(
-        <svg
+export default function MailIcon() {
+  return (
+    <svg
       width="36"
       height="36"
       viewBox="0 0 36 36"
@@ -13,6 +13,5 @@ export default function MailIcon(){
         fill="#A6ABC8"
       />
     </svg>
-
-    )
+  );
 }

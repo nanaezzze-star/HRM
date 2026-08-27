@@ -1,6 +1,6 @@
-export default function GroupIcon(){
-    return(
-        <svg
+export default function GroupIcon() {
+  return (
+    <svg
       viewBox="26 25 20 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,5 +22,5 @@ export default function GroupIcon(){
         fill="#A6ABC8"
       />
     </svg>
-    )
+  );
 }

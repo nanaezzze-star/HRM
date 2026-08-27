@@ -1,80 +1,77 @@
-.sidebar{
-    width: var(--aside-width);
-    height: 100vh;
-    border-right: 1px solid var(--border-color);
-    background-color: var(--background-color);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 32px 0;
-    box-sizing: border-box;
-    position: sticky;
-    top: 0;
+.sidebar {
+  width: var(--aside-width);
+  height: 100vh;
+  border-right: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px 0;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
 }
-.sidebarMenu{
-    padding: 0; 
-    margin: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 10px; 
-    width: 100%;
-    height: 100%;
-
+.sidebarMenu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
 }
 .sidebar nav {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.navItem{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--button-grey);
-    border-radius: var(--radius-big);
-    width: 58px;
-    height: 50px;
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--button-grey);
+  border-radius: var(--radius-big);
+  width: 58px;
+  height: 50px;
 }
 .navItem svg {
   width: 26px;
   height: 26px;
   flex-shrink: 0;
 }
-.active{
-    color:var(--button-blue);
-    background-color: rgb(from var(--button-blue) r g b / 10%);
-
+.active {
+  color: var(--button-blue);
+  background-color: rgb(from var(--button-blue) r g b / 10%);
 }
-.bottomGroup{
-    margin-top: auto;
+.bottomGroup {
+  margin-top: auto;
 }
 .backdrop {
-    display: none;
+  display: none;
 }
 
-
 @media (max-width: 40.5rem) {
-    .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: 1000;
-        transform: translateX(-100%); 
-    }
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    transform: translateX(-100%);
+  }
 
-    .sidebarOpen {
-        transform: translateX(0);
-    }
+  .sidebarOpen {
+    transform: translateX(0);
+  }
 
-    .backdrop {
-        display: block;
-        position: fixed;
-        inset: 0;
-        background-color: rgb(from var(--total-deals-color) r g b / 30%);
-        z-index: var(--z-sidebar) ;
-    }
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgb(from var(--total-deals-color) r g b / 30%);
+    z-index: var(--z-sidebar);
+  }
 }

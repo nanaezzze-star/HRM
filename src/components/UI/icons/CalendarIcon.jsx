@@ -1,6 +1,6 @@
-export default function CalendarIcon(){
-    return(
-        <svg
+export default function CalendarIcon() {
+  return (
+    <svg
       viewBox="3 1 18 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -11,5 +11,5 @@ export default function CalendarIcon(){
         fill="#A6ABC8"
       />
     </svg>
-    )
+  );
 }

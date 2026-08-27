@@ -1,6 +1,6 @@
-export default function SettingIcon(){
-    return(
-        <svg
+export default function SettingIcon() {
+  return (
+    <svg
       viewBox="27 22 19 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -13,5 +13,5 @@ export default function SettingIcon(){
         fill="#A6ABC8"
       />
     </svg>
-    )
+  );
 }

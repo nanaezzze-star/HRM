@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useDraggable } from "@dnd-kit/core";
 import { changeCheckbox } from "../../store/kanbanSlice";
-import BoardUserIcon from "../UI/icons/boardUserIcon";
+import BoardUserIcon from "../UI/icons/BoardUserIcon";
 import * as styles from "./kanban.module.css";
 
 export default function KanbanCard({user}){
@@ -32,8 +32,8 @@ export default function KanbanCard({user}){
             onPointerDown={(e) => e.stopPropagation()} 
             onClick={(e) => e.stopPropagation()}
     
-    aria-label={`Select deal for ${user.title || user.name}`}
-/>
+            aria-label={`Select deal for ${user.title || user.name}`}
+                />
             
             <div className={styles.cardBody}>
                 <span className={styles.cardTitle}>{user.company.title}</span>

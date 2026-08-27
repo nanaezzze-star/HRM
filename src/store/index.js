@@ -1,20 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { userApi } from "./api";
 import kanbanReducer from "./kanbanSlice";
-import paginationReducer from "./paginationSlice"
+import paginationReducer from "./paginationSlice";
 
 export const store = configureStore({
-    reducer: {
-  [userApi.reducerPath]: userApi.reducer, // API cache (data,status)
+  reducer: {
+    [userApi.reducerPath]: userApi.reducer, // API cache (data,status)
     kanban: kanbanReducer,
     pagination: paginationReducer,
-
-    },
-    middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(userApi.middleware),//cache and checks
-
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(userApi.middleware), //cache and checks
 });
-    store.subscribe(() => {
-  localStorage.setItem('kanbanState', JSON.stringify(store.getState().kanban));
-})
-
+store.subscribe(() => {
+  localStorage.setItem("kanbanState", JSON.stringify(store.getState().kanban));
+});

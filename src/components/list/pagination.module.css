@@ -1,77 +1,77 @@
 .pagination {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font);
-    font-size: var(--small-font-size);
-    padding-right: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font);
+  font-size: var(--small-font-size);
+  padding-right: 1.25rem;
 }
 
 .selectWrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-right: 0.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
 }
 
 .select {
-    padding: 0.375rem 1.875rem 0.375rem 0.875rem;
-    border: 1px solid var(--border-color);
-    border-radius: 0.375rem;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-size: var(--small-font-size);
-    font-weight: var(--font-weight-semibold);
-    cursor: pointer;
-    outline: none;
-    min-height: 2.5rem; /* 40px для touch target */
+  padding: 0.375rem 1.875rem 0.375rem 0.875rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  outline: none;
+  min-height: 2.5rem; /* 40px для touch target */
 }
 
 .arrowBtn {
-    border: none;
-    color: var(--text-color);
-    font-size: 1.125rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    min-width: 2.5rem;  /* 40px */
-    min-height: 2.5rem; /* 40px */
-    border-radius: 0.375rem;
-    padding: 0;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.125rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  min-width: 2.5rem; /* 40px */
+  min-height: 2.5rem; /* 40px */
+  border-radius: 0.375rem;
+  padding: 0;
 }
 
 .arrowBtn:hover:not(:disabled) {
-    color: var(--button-blue);
+  color: var(--button-blue);
 }
 
 .arrowBtn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .pageBtn {
-    border: none;
-    min-width: 2.5rem;  /* 40px */
-    min-height: 2.5rem; /* 40px */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    font-weight: 400;
-    cursor: pointer;
-    background-color: transparent;
-    padding: 0;
+  border: none;
+  min-width: 2.5rem; /* 40px */
+  min-height: 2.5rem; /* 40px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
 }
 
 .pageBtn:hover:not(.active) {
-    color: var(--button-blue);
+  color: var(--button-blue);
 }
 
 .active {
-    background-color: rgb(from var(--button-blue) r g b / 10%);
-    color: var(--button-blue);
-    font-weight: var(--font-weight-semibold);
+  background-color: rgb(from var(--button-blue) r g b / 10%);
+  color: var(--button-blue);
+  font-weight: var(--font-weight-semibold);
 }

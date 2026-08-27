@@ -1,6 +1,6 @@
-export default function ResumeIcon (){
-    return(
-        <svg
+export default function ResumeIcon() {
+  return (
+    <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -13,5 +13,5 @@ export default function ResumeIcon (){
         fill="#7B7E86"
       />
     </svg>
-    )
+  );
 }

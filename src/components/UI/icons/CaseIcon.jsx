@@ -1,5 +1,5 @@
-export default function CaseIcon(){
-    return(
+export default function CaseIcon() {
+  return (
     <svg
       viewBox="18 14 20 19"
       fill="none"
@@ -11,6 +11,5 @@ export default function CaseIcon(){
         fill="currentColor"
       />
     </svg>
-
-    )
+  );
 }

@@ -1,6 +1,6 @@
-export default function SearchIcon (){
-    return(
-        <svg
+export default function SearchIcon() {
+  return (
+    <svg
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -22,5 +22,5 @@ export default function SearchIcon (){
         strokeLinejoin="round"
       />
     </svg>
-    )
+  );
 }

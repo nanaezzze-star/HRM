@@ -1,6 +1,6 @@
-export default function NotificationIcon(){
-    return(
-        <svg
+export default function NotificationIcon() {
+  return (
+    <svg
       width="36"
       height="36"
       viewBox="0 0 36 36"
@@ -15,5 +15,5 @@ export default function NotificationIcon(){
         fill="#A6ABC8"
       />
     </svg>
-    )
+  );
 }

@@ -1,6 +1,6 @@
-export default function UserIcon(){
-    return(
-        <svg
+export default function UserIcon() {
+  return (
+    <svg
       viewBox="19 15 18 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -11,5 +11,5 @@ export default function UserIcon(){
         fill="currentColor"
       />
     </svg>
-    )
+  );
 }

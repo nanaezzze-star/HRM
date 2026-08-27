@@ -5,4 +5,3 @@ export const DEALS_STATUS = [
   { id: "won", title: "Won", success: 1.0 },
   { id: "lost", title: "Lost", success: 0.0 },
 ];
-    

@@ -1,13 +1,13 @@
 .mapWrapper {
-    width: 100%;
-    height: 450px; 
-    border-radius: var(--radius-big);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
+  width: 100%;
+  height: 450px;
+  border-radius: var(--radius-big);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
